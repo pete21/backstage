@@ -28,7 +28,7 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
-  name: risk-calculationAPI
+  name: risk-engine-calculationAPI
   description: Risk engine calculation API
 spec:
   type: gRPC

@@ -1,0 +1,50 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: risk-engine
+  namespace: default
+  description: Risk engine to deploy and run ML models
+  labels:
+    example.com/custom: custom_label_value
+  annotations:
+    bitbucket.com/repository: https://bitbucket.org/symmetricalai/sym-repository/src/master/services/sym-riskengine/
+    backstage.io/techdocs-ref: dir:./docs/
+  tags:
+    - python
+  links:
+    - url: https://risk-engine.test01.env.symmetrical.ai
+      title: Risk engine API
+      icon: service
+      type: service
+spec:
+  type: service
+  lifecycle: production
+  owner: group:salary-finance
+  system: symmetrical
+  providesApis:
+    - risk-engine-calculationAPI
+	- risk-engine-modelsAPI
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: risk-calculationAPI
+  description: Risk engine calculation API
+spec:
+  type: gRPC
+  lifecycle: production
+  owner: group:salary-finance
+  definition:
+    $text: https://bitbucket.org/symmetricalai/sym-repository/src/master/contracts/sym-riskengine/grpc-requestcalculation.proto
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: risk-engine-modelsAPI
+  description: Risk engine models API
+spec:
+  type: gRPC
+  lifecycle: production
+  owner: group:salary-finance
+  definition:
+    $text: https://bitbucket.org/symmetricalai/sym-repository/src/master/contracts/sym-riskengine/models-api.proto

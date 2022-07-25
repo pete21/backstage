@@ -23,7 +23,7 @@ spec:
   system: symmetrical
   providesApis:
     - risk-engine-calculationAPI
-	- risk-engine-modelsAPI
+    - risk-engine-modelsAPI
 ---
 apiVersion: backstage.io/v1alpha1
 kind: API

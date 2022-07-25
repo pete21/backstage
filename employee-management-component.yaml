@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: employee-manager
+  namespace: default
+  description: PEOPLE business component
+  annotations:
+    bitbucket.com/repository: https://bitbucket.org/symmetricalai/employee-management/
+    backstage.io/techdocs-ref: dir:./docs/
+  tags:
+    - kotlin
+  links:
+    - url: https://employee-management.sales-demo-01.env.symmetrical.ai
+      title: employee-manager
+      icon: service
+      type: service
+spec:
+  type: service
+  lifecycle: production
+  owner: group:team-em
+  system: symmetrical-people
+  providesApis:
+    - employee-managementAPI
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: employee-managementAPI
+  description: Employee management API
+spec:
+  type: openapi
+  lifecycle: production
+  owner: group:team-em
+  definition:
+    $text: https://employee-management.sales-demo-01.env.symmetrical.ai/v3/api-docs

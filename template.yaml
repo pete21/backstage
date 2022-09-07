@@ -2,7 +2,7 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: docs-template
-  title: Documentation Template
+  title: Documentation Template-bitbucket
   description: Create a new standalone documentation project
   tags:
     - recommended
@@ -46,7 +46,7 @@ spec:
           ui:field: RepoUrlPicker
           ui:options:
             allowedHosts:
-              - github.com
+              - bitbucket.org
 
   # This template is meant to be used on top of an existing template.
   # By adding the following and fetching from an absolute URL you can
@@ -65,9 +65,9 @@ spec:
 
     - id: publish
       name: Publish
-      action: publish:github
+      action: publish:bitbucket
       input:
-        allowedHosts: ['github.com']
+        allowedHosts: ['bitbucket.org']
         description: This is ${{ parameters.name }}
         repoUrl: ${{ parameters.repoUrl }}
 
